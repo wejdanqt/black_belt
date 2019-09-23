@@ -103,6 +103,17 @@ def upload_csv(request):
             return redirect("/check")
          
         else:
+
+            #Trying to send email to the user email 
+
+            
+
+
+
+
+
+
+            #..........................................
             file_data = csv_file.read().decode("utf-8")	
             lines = file_data.split("\n")
             #We need to add id sesstion for the user for now i will assign to static with user id = 1 
@@ -115,6 +126,9 @@ def upload_csv(request):
 
                 #It is one to many
                 Record.objects.create(name= n ,acount = '@' + a , user = this_user )
+
             return redirect("/check")
+
+
 
     
