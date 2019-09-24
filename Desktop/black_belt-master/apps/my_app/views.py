@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse,redirect
 from .models import User , Record
 from django.contrib import messages
 import bcrypt
+from django.core.mail import send_mail
+
 
 #My Import 
 import re
@@ -103,17 +105,14 @@ def upload_csv(request):
             return redirect("/check")
          
         else:
-
-            #Trying to send email to the user email 
-
-            
-
-
-
-
-
-
-            #..........................................
+            #Trying to send email to the user mail box
+            #Send email to the user by using the session
+            user = User.objects.get(id=1)
+            send_mail('This is an Email form Customer Satisfaction Tool' , 'Prosess is succeed', 
+            'customer.satisfaction.sa@gmail.com' , [user.email],
+            fail_silently=False)
+            #.........................
+          
             file_data = csv_file.read().decode("utf-8")	
             lines = file_data.split("\n")
             #We need to add id sesstion for the user for now i will assign to static with user id = 1 
