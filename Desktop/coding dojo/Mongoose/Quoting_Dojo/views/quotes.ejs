@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    <title>Quoting Dojo</title>
+</head>
+
+<body>
+    <h1>Here are the awesome quotes!</h1>
+    <% for (var i in arr) { %>
+        <h4>"<%= arr[i].quote %>"</h4>
+        <h3 style="color: blue;">-<%= arr[i].name %> Created at <%=arr[i].updatedAt%></h3>
+        <hr>
+    <% } %>
+</body>
+
+</html>
